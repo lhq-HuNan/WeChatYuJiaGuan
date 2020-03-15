@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.atguigu.springboot_demo.dao.mapper.AdminMapper">
+    <select id="findAll" resultType="com.atguigu.springboot_demo.dao.entity.AdminDao">
+        SELECT * FROM `admin`
+    </select>
+
+    <select id="findByAccount"  parameterType="com.atguigu.springboot_demo.dao.entity.AdminDao" resultType="com.atguigu.springboot_demo.dao.entity.AdminDao">
+        SELECT * FROM  `admin` WHERE account=#{account}
+    </select>
+    <insert id="regiterAccount" parameterType="com.atguigu.springboot_demo.dao.entity.AdminDao" >
+        insert into `admin`(account,password,admin_id) values(#{account},#{password},#{admin_id})
+    </insert>
+
+    <select id="logIn"  parameterType="com.atguigu.springboot_demo.dao.entity.AdminDao" resultType="com.atguigu.springboot_demo.dao.entity.AdminDao">
+        SELECT * FROM  `admin` WHERE account=#{account} and password=#{password}
+    </select>
+</mapper>

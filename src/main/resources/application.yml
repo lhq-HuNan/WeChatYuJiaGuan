@@ -1,0 +1,33 @@
+
+spring:
+  datasource:
+    druid:
+      username: root
+      password: password
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/miniprogramwx?useUnicode=true&characterEncoding=utf-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      maxWait: 10000
+      testOnBorrow: true
+      testOnReturn: false
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+
+mybatis:
+  type-aliases-package: com.atguigu.springboot_demo.dao.entity
+  mapper-locations: classpath:/mappers/*.xml
+  #config-location: classpath:mybatis-config.xml
+#server:
+#  ssl:
+#    key-store:
+#    key-store-password:
+#    key-store-type:
+server:
+  ssl:
+    key-store: classpath:test.p12
+    key-store-password: 123456
+    keyStoreType: PKCS12
+    keyAlias: test
+  port: 8080
